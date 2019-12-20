@@ -1,5 +1,8 @@
+package dev.aubique.jcalc.core;
+
 public class Expression {
 
+    public String rawExpression;
     private String parsedExpression;
     private Integer numberOne, numberTwo, result;
     private Character operator;

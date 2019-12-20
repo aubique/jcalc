@@ -1,3 +1,4 @@
+import dev.aubique.jcalc.bot.PollingBot;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
@@ -8,7 +9,7 @@ public class Main {
         ApiContextInitializer.init();
         TelegramBotsApi telegramBotApi = new TelegramBotsApi();
         try {
-            telegramBotApi.registerBot(Bot.getInstance());
+            telegramBotApi.registerBot(PollingBot.getInstance());
         } catch (TelegramApiRequestException e) {
             e.printStackTrace();
         }

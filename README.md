@@ -1,6 +1,6 @@
-# Java Calculator
+# Telegram Java Calculator
 
-Basic Java Calculator made for calculating simple arithmetic operations.
+Basic Calculator made for calculating simple arithmetic operations.
 The bot may be accessible on [the Telegram Web](https://t.me/jcalc_bot).
 
 This java application works along with Telegram API.
@@ -21,11 +21,6 @@ The actions supported by calculator bot are adding, subtract, multiply, divide o
 - [IntelliJ IDEA](https://www.jetbrains.com/idea) - JetBrains IDE meant for Java development
 - [TelegramBots](https://github.com/rubenlagus/TelegramBots) - Java library to create bots using Telegram Bots API
 - [Maven](https://maven.apache.org/) - Dependency Management
-
-## Contact
-
-You can contact me by email
-*alexander.matveev2019@campus-eni.fr*
 
 ## Sources
 
