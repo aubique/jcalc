@@ -1,4 +1,13 @@
-# Compiled class file
+# Channel WebToken
+config.xml
+
+# IntelliJ files
+*.idea/
+*.iml
+
+# Compiled files
+out/
+target/
 *.class
 
 # Log file
