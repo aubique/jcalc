@@ -29,4 +29,12 @@ public class ConfigLoader {
     public static String getBotUsername() {
         return settings.getProperty("username");
     }
+
+    public static String getInternalUrl() {
+        return settings.getProperty("internal");
+    }
+
+    public static String getExternalUrl() {
+        return settings.getProperty("external");
+    }
 }

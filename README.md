@@ -11,10 +11,38 @@ The actions supported by calculator bot are adding, subtract, multiply, divide o
 [![Travis](https://img.shields.io/travis/aubique/jcalc)](https://travis-ci.org/aubique/jcalc)
 
 ## Deployment
-> In development
+This bot uses webhooks to communicate with Telegram servers.
+You'll want to install `ngrok` app that tunnels localhost dev environment.
+It would provide an unique URL on the `ngrok.io` domain to forward incoming requests to your local development environment.
 
-## Tests
-> In development
+To start, head over to [Ngrok download page](https://ngrok.com/download) and grab the binary for your OS.
+
+Once downloaded, start **Ngrok** using this command:
+```
+./ngrok http 8443 --region eu
+```
+
+Take a look at the `Forwarding` line to copy that Ngrok domain name to `config.xml` as `external` URL key.
+
+Make sure your configuration file looks like this:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>Telegram Channel Bot Configuration</comment>
+    <entry key="username">jcalc_bot</entry>
+    <entry key="token">TOKEN-PROVIDED-BY-BOTFATHER</entry>
+    <entry key="internal">https://localhost:8443</entry>
+    <entry key="external">https://eece1254.eu.ngrok.io</entry>
+</properties>
+```
+
+Then pick the bot `token` and `external` URL to call the `setWebHook` method in the Telegram API:
+```
+https://api.telegram.org/bot{TOKEN}/setWebhook?url={HTTPS-NGROK-DOMAIN}
+```
+
+> To check if webhook is set up properly call this method `../bot{TOKEN}/getWebhookInfo`
 
 ## Built With
 
@@ -24,11 +52,12 @@ The actions supported by calculator bot are adding, subtract, multiply, divide o
 
 ## Sources
 
-- Gist.GitHub: [Readme Template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
 - Developer.com: [Refactor Java switch Statements](https://www.developer.com/java/data/seven-ways-to-refactor-java-switch-statements.html)
+- Dev.to: [Creating a Telegram Bot in Java](https://dev.to/codegym_cc/creating-a-telegram-bot-in-java-from-conception-to-deployment-3a8c)
+- Github.com/[rubenlagus/TelegramBotsExample](https://github.com/rubenlagus/TelegramBotsExample)
 
 ## Todo
 
-- [ ] Implement a DB solution with JDBC
 - [ ] Make tests with JUnit and Mockito
 - [ ] Integrate build testing with Travis CI
+- [x] Set environment variables with XML configuration
